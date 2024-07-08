@@ -1,0 +1,74 @@
+---
+
+nb_runs: 32
+disable_tessellation: True
+disable_dispersion_stats: True
+
+botName: "LIMMSSWARM"
+randSeed: 1
+nBots: 350
+arenaFileNames:
+    - "arenas/triangle.csv"
+    - "arenas/square.csv"
+    - "arenas/disk.csv"
+    - "arenas/annulus.csv"
+    - "arenas/star.csv"
+    - "arenas/arrow2.csv"
+    - "arenas/annulusBarred.csv"
+arenaNormalizedArea: 500000.0
+formation: "random"
+timeStep: 0.0416666
+simulationTime: 36900.0
+commsRadius: 85
+msgSuccessRate: 1.0
+showComms: 1
+showCommsRadius: 0
+distributePercent: 0.70
+displayWidth : 1100
+displayHeight: 1100
+displayScale : 1.00
+showHist: 0
+histLength: 1000
+storeHistory: 0
+saveVideo:  0
+saveVideoN: 100
+colorscheme: "bright"
+imageName: "./movie/f%04d.bmp"
+stepsPerFrame: 20
+finalImage: null
+stateFileName: "simstates.json"
+stateFileSteps: 3100
+useGrid: 1
+GUI: 0 
+
+initial_s_max_val: 1.
+lambda_scaling: 1.
+inv_tau: 15.
+diffusion_convergence_threshold: 0.1
+diffusion_min_nb_points: 8
+diffusion_min_abs_s: 1.e-5
+
+# Dispersion
+prob_moving: 0.02
+base_tumble_time: 96
+offset: -16
+scaling: 35
+d_optim: 35
+lower_tumble_time: 0
+upper_tumble_time: 124
+
+kiloticks_initial_random_walk: 46500
+kiloticks_random_walk_choice: 15
+kiloticks_randow_walk: 6200
+kiloticks_handshake: 310
+kiloticks_diffusion: 13950
+kiloticks_diffusion_it: 31
+kiloticks_diffusion_burnin: 5000
+kiloticks_collective_avg_lambda: 620
+kiloticks_collective_avg_lambda_it: 31
+kiloticks_collective_avg_avg_lambda: 620
+kiloticks_collective_avg_avg_lambda_it: 31
+
+# MODELINE "{{{1
+# vim:expandtab:softtabstop=4:shiftwidth=4:fileencoding=utf-8
+# vim:foldmethod=marker

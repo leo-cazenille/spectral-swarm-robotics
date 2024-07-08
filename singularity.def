@@ -1,0 +1,39 @@
+Bootstrap: library
+From: ubuntu:20.04
+
+
+%labels
+    Author leo.cazenille@gmail.com
+    Version 0.1.0
+
+%environment
+    export LC_ALL=C.UTF-8
+    export LANG=C.UTF-8
+    export SDL_VIDEODRIVER=dummy
+
+%files
+    kilombo /opt/
+
+%post
+    export DEBIAN_FRONTEND=noninteractive
+    apt-get update
+    apt-get install -y python3 python3-dev python3-pip git libx11-6 python3-yaml build-essential cmake swig gcc-avr gdb-avr binutils-avr avr-libc avrdude libsdl1.2-dev libjansson-dev libsubunit-dev cmake check xserver-xorg-video-dummy xserver-xorg-input-void x11-apps texlive-latex-recommended texlive-latex-extra cm-super dvipng
+    rm -rf /var/lib/apt/lists/*
+
+    rm -fr /opt/kilombo/build
+    cd /opt/kilombo && mkdir -p build && cd build && cmake .. && make clean && make -j 10 && make install
+
+    pip3 uninstall numpy
+    pip3 install --upgrade Pillow numpy==1.23.4 scipy pyaml matplotlib==3.6.2 seaborn scikit-learn shapely networkx cmasher geovoronoi geopandas statannotations statsmodels distinctipy
+
+
+%runscript
+    echo "Nothing there yet..."
+
+%apprun make
+    make clean
+    exec make -j 20
+
+%apprun limmsswarm
+    exec ./limmsswarm
+
